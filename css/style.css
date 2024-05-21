@@ -1,0 +1,114 @@
+html, body {
+    background-color: aqua;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Sans Comic', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+
+nav {
+    background-color: #853003;
+    color: white;
+}
+
+.navbar {
+    position: fixed; /* Position fixe */
+    top: 0; /* colle au top de la page */
+    left: 0;
+    width: 100%; 
+    z-index: 1000; /* bar de navigation reste au dessus des autres contenus... */
+}
+
+
+.home-page {  
+
+    background-image: url('../images/home.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; 
+    padding: 0; 
+    height: 100vh; /* remplit la hauteur de la fenêtre */
+    width: 100vw; /* remplit la largeur de la fenêtre */
+
+}
+body.user-analysis-page {
+    background-color: antiquewhite;
+    background-image: url("../images/userAnalysis.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; 
+    padding: 0; 
+    height: 100vh; 
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-input-page{
+    background-color: antiquewhite;
+    background-image: url("../images/userInput.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; 
+    padding: 0; 
+    height: 100vh; 
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graphique-page{
+
+    background-color: antiquewhite;
+    background-image: url("../images/measure.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; 
+    padding: 0; 
+    height: 100vh; 
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contact-page{
+    background-color: antiquewhite;
+    background-image: url("../images/sentiments.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; 
+    padding: 0; 
+    height: 100vh; 
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.footer {
+    background-color: #efe4e4;
+    text-align: center;
+    padding: 5px 0;
+    position: fixed; /* Posittion fixe */
+    left: 0;
+    bottom: 0; /* postionne en bas de la page */
+    width: 100%; 
+}
