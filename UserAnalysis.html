@@ -6,7 +6,8 @@
     <title>Analyse Utilisateur - SentAnalysis Projet Final Programmation Web</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/UserAnalysis.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -22,10 +23,10 @@
                         <a id="analyse" class="nav-link" href="UserAnalysis.html">Analyse Utilisateur <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a id="input" class="nav-link" href="InputSentence.html">Input Texte</a>
+                        <a id="input" class="nav-link" href="InputSentence.php">Input Texte</a>
                     </li>
                     <li class="nav-item">
-                        <a id="graphique" class="nav-link" href="graphique.html">Graphique</a>
+                        <a id="graphique" class="nav-link" href="graphique.php">Graphique</a>
                     </li>
                     <li class="nav-item">
                         <a id="propos" class="nav-link" href="contact.html">A propos du Projet</a>
@@ -33,16 +34,70 @@
                 </ul>
                 <div class="ml-auto">
                 <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="showCommentForm()">Leave a Comment</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="showCommentForm()">Leave us a Comment</button>
                 </form>
                 </div>
             </div>
         </nav>
+
         <div class="content">
-            <!-- Main content of the Analyse Utilisateur page goes here -->
-            <h2>Analyse Utilisateur</h2>
-            <p>Welcome to the Analyse Utilisateur page.</p>
+
+            <div id="explainTask">
+            <h1>Analyse Utilisateur</h1>
+            <p>Dans le but d'enrichir notre base de données et nos algorithmes, 
+                vous pouvez nous aider en annotant des phrases en fonction 
+                des sentiments qu'elles communiquent.<br/>
+                Afin d'assurer une meilleure qualité de l'annotation, nous allons citer les sources des phrases
+                lors de consultation des annotations.
+                Si vous souhaitez participer, veuillez cliquer sur <b>Annoter</b> ci-dessous.<br/>
+            </p>
+            <button id="annotate" type="submit" class="btn btn-outline-info">Annoter</button>
         </div>
+
+        <div id="annotationTableForm" style="display: none;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <!-- <th>id</th> -->
+                    <th>Phrase</th>
+                    <th>Emotion</th>
+                </tr>
+            </thead>
+            <tbody id="annotationTableBody" > 
+                <!-- Lignes généres par js-->
+            </tbody>
+        </table>
+        <button id="submitAnnotation" type="submit" class="btn btn-outline-info">Finaliser les annotations</button>
+        </div>
+
+       
+        <div id="currentAnnotationsContainer" style="display: none;">
+            <p>Merci pour votre participation!<br/>
+                Vos annotations ont été enregistrées avec succès.
+                Voici les résultats globaux.<br/>
+            </p>
+            <div > 
+                <!-- Résultats scores globaux -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Phrase</th>
+                            <th>Heureux</th>
+                            <th>Triste</th>
+                            <th>Colère</th>
+                            <th>Neutre</th>
+                        </tr>
+                    </thead>
+                    <tbody id="currentAnnotations">
+                        <!-- Table body content will be populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+           
+
+        </div>
+
         <footer class="footer">
             <p>Shami THIRION SEN &copy; 2024 Projet Web Programmation</p>
         </footer>

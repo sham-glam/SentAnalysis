@@ -14,8 +14,9 @@ html, body {
 
 
 nav {
-    background-color: #853003;
+    background-color: #da4f04;
     color: white;
+    font: 1em sans-serif;
 }
 
 .navbar {
