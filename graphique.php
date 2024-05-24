@@ -16,19 +16,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home" class="nav-link" href="index.html">Home</a>
+                        <a id="home" class="nav-link text-white" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="analyse" class="nav-link" href="UserAnalysis.html">Analyse Utilisateur</a>
+                        <a id="analyse" class="nav-link text-white" href="UserAnalysis.html">Analyse Utilisateur</a>
                     </li>
-                    <li class="nav-item">
-                        <a id="input" class="nav-link" href="InputSentence.php">Input Texte</a>
+                    <li class="nav-item"> 
+                        <a id="input" class="nav-link text-white" href="InputSentence.php">Input Texte</a>
                     </li>
                     <li class="nav-item active">
-                        <a id="graphique" class="nav-link" href="graphique.php">Graphique <span class="sr-only">(current)</span></a>
+                        <a id="graphique" class="nav-link text-dark" href="graphique.php">Graphique <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a id="propos" class="nav-link" href="contact.html">A propos du Projet</a>
+                        <a id="propos" class="nav-link text-white" href="contact.html">A propos du Projet</a>
                     </li>
                 </ul>
             </div>

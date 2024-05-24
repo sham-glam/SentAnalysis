@@ -14,8 +14,8 @@ html, body {
 
 
 nav {
-    background-color: #da4f04;
-    color: white;
+    background-color: #e73c08;
+    /* color: white; */
     font: 1em sans-serif;
 }
 
@@ -25,6 +25,12 @@ nav {
     left: 0;
     width: 100%; 
     z-index: 1000; /* bar de navigation reste au dessus des autres contenus... */
+}
+
+
+
+.nav-link:hover {
+    color: rgb(31, 149, 153); /* Optional: change color on hover */
 }
 
 

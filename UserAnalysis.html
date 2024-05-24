@@ -17,19 +17,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home" class="nav-link" href="index.html">Home</a>
+                        <a id="home" class="nav-link text-white" href="index.html">Home</a>
                     </li>
                     <li class="nav-item active">
-                        <a id="analyse" class="nav-link" href="UserAnalysis.html">Analyse Utilisateur <span class="sr-only">(current)</span></a>
+                        <a id="analyse" class="nav-link text-dark" href="UserAnalysis.html">Analyse Utilisateur <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a id="input" class="nav-link" href="InputSentence.php">Input Texte</a>
+                        <a id="input" class="nav-link text-white" href="InputSentence.php">Input Texte</a>
                     </li>
                     <li class="nav-item">
-                        <a id="graphique" class="nav-link" href="graphique.php">Graphique</a>
+                        <a id="graphique" class="nav-link text-white" href="graphique.php">Graphique</a>
                     </li>
                     <li class="nav-item">
-                        <a id="propos" class="nav-link" href="contact.html">A propos du Projet</a>
+                        <a id="propos" class="nav-link text-white" href="contact.html">A propos du Projet</a>
                     </li>
                 </ul>
                 <div class="ml-auto">
@@ -89,9 +89,11 @@
                         </tr>
                     </thead>
                     <tbody id="currentAnnotations">
-                        <!-- Table body content will be populated dynamically -->
+                        <!-- population dynamique depuis js et php selon les valeur annotés -->
                     </tbody>
                 </table>
+                <p>Si vous souhaitez populer la base de donnés avec vos données, veuillez cliquer:</p>
+                <a href="InputSentence.php" class="btn btn-primary"> Input Sentence</a>
             </div>
         </div>
            
