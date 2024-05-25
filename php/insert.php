@@ -1,5 +1,5 @@
 <?php
-require_once 'php/db.php'; // Database connection
+require_once 'db.php'; // Database connection
 
 function getJournalId($journal) {
     // Define a mapping of journal names to ids

@@ -11,10 +11,19 @@ html, body {
     min-height: 100vh;
     text-align: center;
 }
+table{
+    background-color: rgba(226, 113, 61, 0.379);
+}
 
+p{
+    font-size: 1.5em;
+    color: #641553;
+    display: block;
+
+}
 
 nav {
-    background-color: #e73c08;
+    background-color: #fb630c;
     /* color: white; */
     font: 1em sans-serif;
 }
@@ -109,13 +118,31 @@ body.user-analysis-page {
 
 }
 
-
 .footer {
     background-color: #efe4e4;
     text-align: center;
     padding: 5px 0;
-    position: fixed; /* Posittion fixe */
+    position: fixed; 
     left: 0;
-    bottom: 0; /* postionne en bas de la page */
+    bottom: 0; 
     width: 100%; 
+    height: 50px; 
+}
+
+.content {
+    padding-bottom: 100px;
+    padding-top: 100px; /*espace en dessous de bar de navigation */  
+
+}
+
+#graphContent {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.graph-box {
+    border: 1px solid #b43304;
+    padding: 20px;
+    flex: 1;
+    text-align: center;
 }

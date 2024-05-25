@@ -37,7 +37,7 @@ $(document).ready(function() {
         form.empty();
     
         // Creation dynamique des lignes du tableau dans le html
-        sentences.forEach(function(sentence) {
+        sentences.slice(0, 5).forEach(function(sentence) {
             var row = $('<tr></tr>');
             // row.append(`<td>phrase_${sentence.id}</td>`);
             row.append(`<td>${sentence.phrase}</td>`);
@@ -52,7 +52,7 @@ $(document).ready(function() {
                         </td>`);
             form.append(row); // Append the row to the table body
         });
-
+        
         $('#annotationTableForm').show();
     }
 
