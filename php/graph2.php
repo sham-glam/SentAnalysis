@@ -15,6 +15,7 @@
 <body class="graphique-page">
 
     <div class="container">
+
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
@@ -38,9 +39,11 @@
         </nav>
 
         <div id="graph2">
+                <br/><br/><br/><br/><br/>
                 <h3>Graphique 2</h3>
                 <p>Graphique de la distribution des sentiments par phrase par journal</p>
                 <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+                <br/><br/>
       
         </div>
 
@@ -111,9 +114,10 @@ $pdo = null;
 </script>
 <div class="links">
     <a href="graphStats.php" class="btn btn-primary">Graphique 1</a>
-    <a href="graph3.php" class="btn btn-primary">Graphique 3</a>
+    <a href="tal.php" class="btn btn-primary">Graphique 3</a>
     <a href="../graphique.html" class="btn btn-primary">Voir toutes les options statistique</a>
     <a href="../index.html" class="btn btn-secondary">Retour à la page d'accueil</a>
+    <br/><br/><br/>
 </div>
 
 

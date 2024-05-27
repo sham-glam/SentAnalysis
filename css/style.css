@@ -1,18 +1,25 @@
 html, body {
-    background-color: aqua;
+    background-color: rgb(155, 252, 238);
     height: 100%;
-    margin: 0;
-    padding: 0;
+    /* margin: 0; */
+    /* padding: 0; */
     font-family: 'Sans Comic', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     text-align: center;
+    min-height: 400px;
+    margin-bottom: 100px;
+    clear: both;
 }
+
+
 table{
-    background-color: rgba(226, 113, 61, 0.379);
+    /* background-color: rgba(226, 113, 61, 0.379);
+     */
+    display: inline-block;
 }
 
 p{
@@ -42,6 +49,11 @@ nav {
     color: rgb(31, 149, 153); /* Optional: change color on hover */
 }
 
+/* couleur de fond bouton */
+.btn-primary {
+    background-color: #20b4b7; 
+    border-color: #093a2c; 
+}
 
 .home-page {  
 
@@ -55,9 +67,11 @@ nav {
     width: 100vw; /* remplit la largeur de la fenêtre */
 
 }
+
+
 body.user-analysis-page {
     background-color: antiquewhite;
-    background-image: url("../images/userAnalysis.jpg");
+    /* background-image: url("../images/userAnalysis.jpg"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -76,6 +90,7 @@ body.user-analysis-page {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     margin: 0; 
     padding: 0; 
     height: 100vh; 
@@ -92,6 +107,7 @@ body.user-analysis-page {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     margin: 0; 
     padding: 0; 
     height: 100vh; 
@@ -130,6 +146,7 @@ body.user-analysis-page {
 }
 
 .content {
+    flex:1;
     padding-bottom: 100px;
     padding-top: 100px; /*espace en dessous de bar de navigation */  
 
@@ -145,4 +162,13 @@ body.user-analysis-page {
     padding: 20px;
     flex: 1;
     text-align: center;
+}
+
+/* class=graphique-page */
+
+.graphique-page {
+    background-color: darkblue;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }

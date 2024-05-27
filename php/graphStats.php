@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,9 +39,13 @@
         </nav>
 
         <div id="graph1">
+            <br/><br/><br/><br/><br/>
+
             <h3>Graphique 1</h3>
             <p>Graphique de la distribution des sentiments</p>
             <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+            <br/><br/><br/>
+
         </div>
     </div>
 
@@ -95,5 +100,12 @@
         console.log("Chart rendered successfully.");
     }
     </script>
+    <div class="links">
+    <a href="graph2.php" class="btn btn-primary">Graphique 2</a>
+    <a href="tal.php" class="btn btn-primary">Graphique 3</a>
+    <a href="../graphique.html" class="btn btn-primary">Voir toutes les options statistique</a>
+    <a href="../index.html" class="btn btn-secondary">Retour à la page d'accueil</a>
+    <br/><br/><br/>
+    </div>
 </body>
 </html>

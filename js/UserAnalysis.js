@@ -1,6 +1,6 @@
 $(document).ready(function() {
     alert("Vous êtes dans la page de l\'analyse des utilisateurs");
-    // console.log( "document loaded" );
+    console.log( "document loaded" );
 
     $('#annotate').click(function(event) {
         alert("Vous allez être redigé vers un formulaire d'annotation");
@@ -10,8 +10,6 @@ $(document).ready(function() {
 
     $('#submitAnnotation').click(function(event) {
         alert("La base de données va être mise à jour");
-        // $('#annotationTableForm').hide();
-        // $('#merci').show();
         updateDBSentences(); // met à jour la base de données avec les annotations
 
     });
@@ -79,7 +77,13 @@ $(document).ready(function() {
             success: function(response) {
                 console.log('Data updated successfully:', response);
                 $('#annotationTableForm').hide();
-                showCurrentAnnotations(annotatedIds); // Show annotations for annotated sentences
+                if (annotatedIds.length > 0) {
+                    showCurrentAnnotations(annotatedIds); 
+                }else{
+                    $('#noAnnotations').show();
+                    // $('#explainTask').show();
+                    
+                }
             },
             error: function(error) {
                 console.error('Error updating data:', error);
@@ -96,7 +100,7 @@ $(document).ready(function() {
             data: { ids: annotatedIds }, // Send the annotated IDs to fetch relevant annotations
             success: function(data) {
                 $('#currentAnnotations').html(data);
-                $('#merci').hide();
+                // $('#merci').hide();
                 $('#currentAnnotationsContainer').show(); 
 
             },
@@ -106,7 +110,5 @@ $(document).ready(function() {
         });
     }
 
-    
-
-});
+    });
 
