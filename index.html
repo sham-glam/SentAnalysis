@@ -6,21 +6,29 @@
     <title>SentAnalysis Projet Final Programmation Web</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/index.js"></script>
+
+
 </head>
-<body class="home-page">
+
+<body class="home-page">    
+    <header class="header">
+        <h3>SentAnalysis</h3>
+    </header>
+    <main>
+   
     <div class="container">
-        <br/><br/><br/><br/><br/>
-        <header class="header">
-            <h2>SentAnalysis</h2>
-        </header>
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a id="home" class="nav-link text-dark" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a id="home" class="nav-link text-dark" href="index.html">Accueil<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a id="analyse" class="nav-link text-white" href="UserAnalysis.html">Analyse Utilisateur</a>
@@ -36,18 +44,65 @@
                     </li>
                 </ul>
                 <div class="ml-auto">
-                <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="showCommentForm()">Leave a Comment</button>
-                </form>
+                    <a href="php/formulaire_contact.php" class="btn btn-outline-light">Laisser nous un commentaire</a>
+                    <button id="darkModeToggle">Dark Mode</button>
+                    <button id="lightModeToggle" style="display:none">Light Mode</button>
                 </div>
+
             </div>
         </nav>
+
+        <!--Main content après Navbar-->
         <div class="content">
-            <!-- Main content of the home page goes here -->
+            <div class="bullet-list">
+                <ol class="list-group">
+                  <li class="list-group-item">SentAnalysis est un projet de programmation web qui
+                       recueille des annotation en sentiments des phrases issues des journaux.</li>
+                  <li class="list-group-item">Le but de ce projet est de permettre aux utilisateurs d'annoter de
+                      visualiser quelques statistiques sur l'annotation en sentiment des phrases issues des journaux.</li>
+                  <li class="list-group-item">Les annotations sont classées en : heureux, triste, colere et neutre.</li>
+                  <li class="list-group-item">Pour l'instant nous avons listé que quatre journaux francophones : Le Monde
+                      Libération, Le Figaro et le Monde diplomatique.<br>
+                      Les phrases issues d'autres sources sont classées sous <em>divers</em></li>
+                  </ol>
+              </div>
         </div>
-        <footer class="footer">
-            <p>Shami THIRION SEN &copy; 2024 | Projet Web Programmation</p>
-        </footer>
+        <!--caroussel image-->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/sentiments.jpg" class="d-block w-100" alt="image1" style="max-height: 400px;">
+              </div>
+              <div class="carousel-item">
+                <img src="images/take_a_test.jpg" class="d-block w-100" alt="image2" style="max-height: 400px;">
+              </div>
+              <div class="carousel-item">
+                <img src="images/measure.jpg" class="d-block w-100" alt="image3" style="max-height: 400px;">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" style="background-color: rgba(0, 0, 0, 0.5); border: none;">
+              <span class="carousel-control-prev-icon" aria-hidden="true" style="font-size: 2rem;"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" style="background-color: rgba(0, 0, 0, 0.5); border: none;">
+              <span class="carousel-control-next-icon" aria-hidden="true" style="font-size: 2rem;"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          
+
     </div>
+
+        
+       
+</main>
+<footer class="footer">
+        <h5>Shami THIRION SEN &copy; 2024 | Projet Web Programmation</h5>
+</footer>
 </body>
 </html>

@@ -10,15 +10,17 @@ $(document).ready(function() {
 
     $('#submitAnnotation').click(function(event) {
         alert("La base de données va être mise à jour");
+        $('#annotationTableForm').hide();
+        $('#annotationTableBody').hide();
         updateDBSentences(); // met à jour la base de données avec les annotations
 
     });
 
-    
+    // 
     function fetchDBSentences() {
         $.ajax({
             url: 'php/fetchUserAnalysis.php',
-            method: 'GET', // The HTTP method to use for the request
+            method: 'GET', 
             dataType: 'json',
             success: function(data) {
                 console.log('Data fetched successfully:', data);
@@ -29,11 +31,28 @@ $(document).ready(function() {
             }
         });
     }
-    // fonction qui peuple le formulaire pour annotation 
+    // shuffle function -> source stackoverflow
+    function shuffle(array) {
+        let currentIndex = array.length;
+      
+        // While there remain elements to shuffle...
+        while (currentIndex != 0) {
+      
+          // Pick a remaining element...
+          let randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+      
+          // And swap it with the current element.
+          [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+        }
+      }
+    // fonction qui peuple  dynamiquement le formulaire pour annotation 
     function populateForm(sentences) {
         var form = $('#annotationTableBody');
         form.empty();
     
+        shuffle(sentences); 
         // Creation dynamique des lignes du tableau dans le html
         sentences.slice(0, 5).forEach(function(sentence) {
             var row = $('<tr></tr>');
@@ -54,10 +73,12 @@ $(document).ready(function() {
         $('#annotationTableForm').show();
     }
 
-
+    // fonction met à jour (augmente score) la base de données avec les annotations
     function updateDBSentences() {
+        $('#annotationTableForm').hide();
+
         var annotations = [];
-        var annotatedIds = []; // Array to store the IDs of annotated sentences
+        var annotatedIds = []; // Array stocke les ids des phrases annotées
     
         var tableBody = $('#annotationTableBody');
         
@@ -66,7 +87,7 @@ $(document).ready(function() {
             var emotion = $(row).find('select').val(); // select contient nom de col bdd
             if (emotion) {
                 annotations.push({ id: sentenceId, emotion: emotion });
-                annotatedIds.push(sentenceId); // Store the ID of annotated sentence
+                annotatedIds.push(sentenceId); // scokage des ids des phrases annotées
             }
         });
     
@@ -76,10 +97,10 @@ $(document).ready(function() {
             data: { annotations: annotations },
             success: function(response) {
                 console.log('Data updated successfully:', response);
-                $('#annotationTableForm').hide();
                 if (annotatedIds.length > 0) {
                     showCurrentAnnotations(annotatedIds); 
                 }else{
+                    // $('#annotationTableForm').hide();
                     $('#noAnnotations').show();
                     // $('#explainTask').show();
                     
@@ -92,7 +113,7 @@ $(document).ready(function() {
     }
     
 
-    // on montre les résultats 
+    // on montre tous les résultats des phrases annotées
     function showCurrentAnnotations(annotatedIds) {
         $.ajax({
             url: 'php/fetchCurrentAnnotations.php', 

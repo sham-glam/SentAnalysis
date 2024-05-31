@@ -9,8 +9,10 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="graphique-page">
@@ -20,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home" class="nav-link text-white" href="../index.html">Home</a>
+                        <a id="home" class="nav-link text-white" href="../index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a id="analyse" class="nav-link text-white" href="../UserAnalysis.html">Analyse Utilisateur</a>
@@ -39,10 +41,7 @@
         </nav>
 
         <div id="graph1">
-            <br/><br/><br/><br/><br/>
-
             <h3>Graphique 1</h3>
-            <p>Graphique de la distribution des sentiments</p>
             <div id="chartContainer" style="height: 400px; width: 100%;"></div>
             <br/><br/><br/>
 
@@ -52,7 +51,7 @@
     <?php
         require_once 'db.php';
 
-        echo "<!-- Connecting to the database -->\n";
+        // echo "<!-- Connecting to the database -->\n";
         $query = "SELECT SUM(heureux) as sum_heureux, SUM(triste) as sum_triste, SUM(colere) as sum_colere, SUM(neutre) as sum_neutre FROM userAnalysis";
         $result = $pdo->query($query);
 
@@ -81,7 +80,7 @@
             theme: "light2",
             animationEnabled: true,
             title: {
-                text: "Emotion Analysis by Number of Sentences"
+                text: "Distribution des émotions annotées à travers les phrases"
             },
             data: [{
                 type: "pie",
@@ -101,8 +100,8 @@
     }
     </script>
     <div class="links">
-    <a href="graph2.php" class="btn btn-primary">Graphique 2</a>
-    <a href="tal.php" class="btn btn-primary">Graphique 3</a>
+    <a href="stats2.php" class="btn btn-primary">Graphique 2</a>
+    <a href="stats3.php" class="btn btn-primary">Graphique 3</a>
     <a href="../graphique.html" class="btn btn-primary">Voir toutes les options statistique</a>
     <a href="../index.html" class="btn btn-secondary">Retour à la page d'accueil</a>
     <br/><br/><br/>

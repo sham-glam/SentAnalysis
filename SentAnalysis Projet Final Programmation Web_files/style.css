@@ -1,54 +1,33 @@
 html, body {
-    background-color: rgb(205, 246, 240);
+    background-color: rgb(155, 252, 238);
     height: 100%;
-    font-family: system-ui;
-    margin: 0;
-    padding: 0;
-}
-
-body {
+    font-family: system-ui; 
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 70px; /* Padding to clear the fixed navbar */
-    margin-bottom: 100px; /* Padding to clear the fixed footer */
-
+    min-height: 900px;
+    margin-bottom: 300px;
+    clear: both;
 }
 
-main{
-    margin-bottom: 100px;
-}
-
-body.dark-mode {
-    background: #0a100f url("../images/userInput-dark.png") center/cover no-repeat fixed;
-    color: rgb(19, 110, 167);
-}
-
-.bullet-list{
-    display: inline-block;
-}
 
 table{
-    background-color: rgb(239, 144, 144);
-    
-}
-
-#graph1, #graph2, #graph3{
-    background-color: rgba(16, 20, 20, 0.799);
-    color:aqua;
+    /* background-color: rgba(226, 113, 61, 0.379);
+     */
+    display: inline-block;
     margin: 2 auto;
-
 }
 
 p{
     display: inline-block;
-    color: #103f32;
-    border: #02ae69;
+    color: #0e234a;
+    border: #8fade4;
     border-style: solid;
-    border-width: 2px;
+    border-width: 3px;
     padding: 10px;
-    background-color: rgb(182, 249, 233);
+    background-color: bisque;
 
 }
 #tal{
@@ -57,17 +36,16 @@ p{
 
 nav {
     background-color: #f55e06;
+    /* color: white; */
     font: 1em sans-serif;
-    margin-bottom: 50px;
 }
 
 .navbar {
     position: fixed; /* Position fixe */
-    margin-bottom: 100px; /* espace en dessous de bar de navigation */
     top: 0; /* colle au top de la page */
     left: 0;
     width: 100%; 
-    z-index: 1001; /* reste au dessus des autres contenus... */
+    z-index: 1000; /* bar de navigation reste au dessus des autres contenus... */
 }
 
 
@@ -81,11 +59,6 @@ nav {
     background-color: #20b4b7; 
     border-color: #093a2c; 
 }
-button.btn-outline-info{
-    border-color: rgb(15, 194, 146);
-    color: black;
-    background-color: rgb(155, 252, 238);
-}
 
 .home-page {  
 
@@ -95,16 +68,15 @@ button.btn-outline-info{
     background-repeat: no-repeat;
     margin: 0; 
     padding: 0; 
-    /* height: 100vh; remplit la hauteur de la fenêtre */
+    height: 100vh; /* remplit la hauteur de la fenêtre */
     width: 100vw; /* remplit la largeur de la fenêtre */
-    margin-top: 50px;  
-    margin-bottom: 100px;
 
 }
 
 
 body.user-analysis-page {
     background-color: antiquewhite;
+    /* background-image: url("../images/userAnalysis.jpg"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -117,17 +89,25 @@ body.user-analysis-page {
     align-items: center;
 }
 
-.user-input-page {
+.user-input-page{
+    background-color: antiquewhite;
     background-image: url("../images/userInput.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0; 
+    padding: 0; 
+    height: 100vh; 
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 
 .graphique-page{
 
-    background-color: rgb(172, 247, 238);
+    background-color: antiquewhite;
     background-image: url("../images/measure.jpg");
     background-size: cover;
     background-position: center;
@@ -140,12 +120,11 @@ body.user-analysis-page {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
 
 }
 
 .contact-page{
-    background-color: rgb(172, 247, 238);
+    background-color: antiquewhite;
     background-image: url("../images/sentiments.jpg");
     background-size: cover;
     background-position: center;
@@ -161,35 +140,20 @@ body.user-analysis-page {
 }
 
 .footer {
-    position: fixed;
     background-color: #efe4e4;
     text-align: center;
-    padding: 3px 0;
+    padding: 5px 0;
     position: fixed; 
     left: 0;
     bottom: 0; 
     width: 100%; 
     height: 50px; 
-    margin-top: 200px;
-}
-
-header {
-    margin-top: 100px;
-    font-style: italic;
-    color: #75a4a4;
-    top: 0;
-    left: 0;
-    width: 50%;
-    /* background-color: #f8f9fa;  */
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-    /* z-index: 999; */
 }
 
 .content {
     flex:1;
-    padding-bottom: 50px;
-    padding-top: 50px; /*espace en dessous de bar de navigation */  
+    padding-bottom: 100px;
+    padding-top: 100px; /*espace en dessous de bar de navigation */  
 
 }
 
@@ -212,25 +176,4 @@ header {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-}
-
-#table-view {
-    display: table;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.tr-view {
-    display: table-row;
-}
-
-.td-view {
-    display: table-cell;
-    width: 50%;
-    padding: 10px;
-}
-
-/* Optional: Remove borders */
-.td-view {
-    border: none;
 }

@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body class="contact-page">
+<header>
+    <h4>A propos du projet</h4>
+</header>
+<main>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home" class="nav-link text-white" href="index.html">Home</a>
+                        <a id="home" class="nav-link text-white" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a id="analyse" class="nav-link text-white" href="UserAnalysis.html">Analyse Utilisateur</a>
@@ -28,20 +34,45 @@
                         <a id="graphique" class="nav-link text-white" href="graphique.html">Graphique</a>
                     </li>
                     <li class="nav-item active">
-                        <a id="propos" class="nav-link text-dark" href="contact.php">A propos du Projet <span class="sr-only">(current)</span></a>
+                        <a id="propos" class="nav-link text-dark" href="contact.html">A propos du Projet <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
+                <div class="ml-auto">
+                    <!-- <form class="form-inline my-2 my-lg-0">
+                        <button class="btn btn-outline-info my-2 my-sm-0" type="button" >Laissez nous un commentaire</button>
+                    </form> -->
+                    <a href="php/formulaire_contact.php" class="btn btn-outline-info my-2 my-sm-0">Laissez nous un commentaire</a>
+
+                </div>
             </div>
         </nav>
-        <div class="content">
-            <!-- Main content of the Contact page goes here -->
-            <h2>Contact</h2>
-            <p>Welcome to the Contact page.</p>
+
+
+        <div id="table-view">
+
+            <div class="tr-view">
+                <div class="td-view">
+                    <p>Merci d'avoir visité notre site web.</p>
+                </div>
+                <div class="td-view">
+                    <p> Veuillez-nous laisser votre retour, afin que nous puission améliorer notre site.</p>
+                    <!-- <form id="comment-form" action="php/formulaire_contact.php" method="POST">
+                        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Remplir le formulaire</button>
+                    </form> -->
+                    <a href="php/formulaire_contact.php" class="btn btn-outline-info my-2 my-sm-0">Commentaire</a>
+
+                    
+                </div>
+            </div>
             
         </div>
-        <footer class="footer">
-            <p>Shami THIRION SEN &copy; 2024 Projet Web Programmation</p>
-        </footer>
+
+        
     </div>
+</main>
+    <footer class="footer">
+        <p>Shami THIRION SEN &copy; 2024 Projet Web Programmation</p>
+    </footer>
 </body>
+
 </html>

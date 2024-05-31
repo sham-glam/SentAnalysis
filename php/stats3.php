@@ -1,5 +1,6 @@
 <?php
 
+// pour déboguer
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -15,22 +16,23 @@ ini_set('display_errors', 1);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="graphique-page">
 <br><br><br>
 
 <?php
-echo "debug 1";
 ?>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home" class="nav-link text-white" href="../index.html">Home</a>
+                        <a id="home" class="nav-link text-white" href="../index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a id="analyse" class="nav-link text-white" href="../UserAnalysis.html">Analyse Utilisateur</a>
@@ -48,10 +50,11 @@ echo "debug 1";
             </div>
         </nav>
 
-        <div id="tal">
+        <div id="graph3">
                 <br/><br/><br/><br/><br/>
                 <h3>Traitement TAL</h3>
                 <p>Calcul des termes les plus fréquents par catégorie</p>
+                <br/><br/><br/><br/><br/>
                 <!-- <div id="calculateTal" style="height: 400px; width: 100%;"> -->
                 
 
@@ -96,16 +99,19 @@ while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
 } // end while
 
 
+// liste des stopwords
 $stop_words = array('et', 'à', 'le', 'la', 'les', 'des', 'du', 'un', 'une', 'de', 'en', 'pour', 'avec', 'par', 'sur', 'au', 'aux', 'dans', 'ne', 'pas', 'que', 'qui', 'ce', 'se', 
 'sa', 'son', 'ses', 'lui', 'leur', 'ils', 'elles', 'nous', 'vous', 'elle', 'il', 'tu', 'moi', 'toi', 'eux', 'elles', 'nous', 'vous', 'leur', 'leurs', 'mon', 'ton', 'son', 'notre'
 ,'qu\'il', 'qu\'elle', 'qu\'ils', 'qu\'elles', 'qu\'on', 'qu\'en', 'qu\'y', 'qu\'à', 'qu\'au', 'qu\'aux', 'qu\'un', 'qu\'une', 'qu\'il', 'qu\'elle', 'qu\'ils', 'qu\'elles', 'qu\'on',
-'est', 'sont', 'a', 'l\'');
+'est', 'sont', 'a', 'l\'', 'ont');
 
+
+// calcul des max_score et attribution d'une émotion et termes les plus fréquents par émotion
 foreach ($categories as $emotion => $sentences) {
-    $all_text = implode(' ', $sentences);
+    $all_text = implode(' ', $sentences); // concaténation des phrases
     $all_text = remove_named_entities($all_text);
     $word_count = array();
-    $all_text = preg_replace('/[^\p{L}\p{N}\s]/u', '', $all_text);
+    $all_text = preg_replace('/[^\p{L}\p{N}\s]/u', ' ', $all_text);
     $words = explode(' ', strtolower($all_text));
 
     foreach ($words as $word) {
@@ -152,9 +158,8 @@ function remove_named_entities($text) {
 </div>
 
     <div class="links">
-    <br><br><br>
-    <a href="graphStats.php" class="btn btn-primary">Graphique 1</a>
-    <a href="graph2.php" class="btn btn-primary">Graphique 2</a>
+    <a href="stats1.php" class="btn btn-primary">Graphique 1</a>
+    <a href="stats2.php" class="btn btn-primary">Graphique 2</a>
     <a href="../graphique.html" class="btn btn-primary">Voir toutes les options statistique</a>
     <a href="../index.html" class="btn btn-secondary">Retour à la page d'accueil</a>
     <br><br><br>

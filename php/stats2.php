@@ -8,8 +8,10 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="graphique-page">
@@ -20,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home" class="nav-link text-white" href="../index.html">Home</a>
+                        <a id="home" class="nav-link text-white" href="../index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a id="analyse" class="nav-link text-white" href="../UserAnalysis.html">Analyse Utilisateur</a>
@@ -40,8 +42,7 @@
 
         <div id="graph2">
                 <br/><br/><br/><br/><br/>
-                <h3>Graphique 2</h3>
-                <p>Graphique de la distribution des sentiments par phrase par journal</p>
+                <h4>Graphique 2</h4>
                 <div id="chartContainer" style="height: 400px; width: 100%;"></div>
                 <br/><br/>
       
@@ -86,7 +87,7 @@ $pdo = null;
                 text: "Distribution des sentiments par phrase par journal"
             },
             axisX: {
-                title: "Journal"
+                title: "Emotions"
             },
             axisY: {
                 title: "Nombre de phrases"
@@ -113,8 +114,8 @@ $pdo = null;
     }
 </script>
 <div class="links">
-    <a href="graphStats.php" class="btn btn-primary">Graphique 1</a>
-    <a href="tal.php" class="btn btn-primary">Graphique 3</a>
+    <a href="stats1.php" class="btn btn-primary">Graphique 1</a>
+    <a href="stats3.php" class="btn btn-primary">Graphique 3</a>
     <a href="../graphique.html" class="btn btn-primary">Voir toutes les options statistique</a>
     <a href="../index.html" class="btn btn-secondary">Retour à la page d'accueil</a>
     <br/><br/><br/>

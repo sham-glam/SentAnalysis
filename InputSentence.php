@@ -2,6 +2,7 @@
 session_start();
 require_once 'php/db.php'; // Database connection
 
+// correspondance entre les journaux et les identifiants
 function getJournalId($journal) {
     $journalIds = [
         "Le Monde" => 1,
@@ -14,7 +15,7 @@ function getJournalId($journal) {
     return isset($journalIds[$journal]) ? $journalIds[$journal] : 5; // Default value
 }
 
-// Function to check if a phrase already exists in the database
+// fonction qui vérifie si une phrase existe déjà dans la base de données   
 function phraseExists($phrase) {
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM userAnalysis WHERE phrase = ?");
@@ -23,7 +24,7 @@ function phraseExists($phrase) {
     return $result;
 }
 
-// Function to fetch all added phrases
+// fonction qui récupère toutes les phrases ajoutées par l'utilisateur de la session actuel
 function getAllAddedPhrases() {
     global $pdo;
     $phrases = [];
@@ -32,38 +33,36 @@ function getAllAddedPhrases() {
             $stmt = $pdo->prepare("SELECT * FROM userAnalysis WHERE id = ?");
             $stmt->execute([$id]);
             while($phrase = $stmt->fetch(PDO::FETCH_OBJ)) {
-                $phrases[] = $phrase; // Add the fetched row to the phrases array
+                $phrases[] = $phrase; // Ajoute la phrase à la liste
             }
         }
     }
     return $phrases;
 }
 
-// Initialize the added IDs session variable if not set
+// initialisation de la variable de session pour stocker les identifiants des phrases ajoutées
 if (!isset($_SESSION['added_ids'])) {
     $_SESSION['added_ids'] = [];
 }
 
+// Traitement du formulaire
 if (isset($_POST['submit'])) {
-    // Handle form submission
     $phrase = trim($_POST['phrase']);
     $category = trim($_POST['category']);
     $journal = isset($_POST['journal']) ? trim($_POST['journal']) : 'divers';
     $id_journal = getJournalId($journal);
     try {
-        // Check if the phrase is longer than 3 characters and not empty
         if (strlen($phrase) > 3 && !empty($phrase)) {
-            // Check if the phrase already exists in the database
             if (phraseExists($phrase)) {
                 echo "Cette phrase existe déjà dans la base de données.";
             } else {
-                // Define the initial values for each category
+                // vérifie si la catégorie 
                 $heureux = $category === 'heureux' ? 1 : 0;
                 $triste = $category === 'triste' ? 1 : 0;
                 $colere = $category === 'colere' ? 1 : 0;
                 $neutre = $category === 'neutre' ? 1 : 0;
 
-                // Prepare the SQL statement with placeholders
+                // prépare la requête SQL avec des placeholders
                 $stmt = $pdo->prepare("INSERT INTO userAnalysis (phrase, id_journal, journal, heureux, triste, colere, neutre)
                                        VALUES (:phrase, :id_journal, :journal, :heureux, :triste, :colere, :neutre)");
 
@@ -76,10 +75,10 @@ if (isset($_POST['submit'])) {
                 $stmt->bindParam(':colere', $colere);
                 $stmt->bindParam(':neutre', $neutre);
 
-                // Execute the statement
+                
                 $stmt->execute();
 
-                // Store the added ID in session
+                // Ajoute l'identifiant de la phrase ajoutée à la variable de session
                 $_SESSION['added_ids'][] = $pdo->lastInsertId();
 
                 echo "<p>Vos données ont été enregistrées!</p>";
@@ -93,10 +92,10 @@ if (isset($_POST['submit'])) {
     }
 }
 
+// Suppression des phrases ajoutées si l'utilisateur clique sur le bouton "Confirmer la suppression"
 if(isset($_POST['confirm_delete_phrases'])) {
     if(isset($_POST['delete'])) {
         foreach($_POST['delete'] as $phraseId) {
-            // Delete each selected phrase from the database
             $stmt = $pdo->prepare("DELETE FROM userAnalysis WHERE id = ?");
             $stmt->execute([$phraseId]);
         }
@@ -117,9 +116,16 @@ if(isset($_POST['confirm_delete_phrases'])) {
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="js/InputSentence.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script></head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
 <body class="user-input-page">
+<header>
+   <h4>Insertion des pharses par l'utilisateur.</h4>
+</header>
+<main>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -140,17 +146,16 @@ if(isset($_POST['confirm_delete_phrases'])) {
                         <a id="propos" class="nav-link text-white" href="contact.html">A propos du Projet</a>
                     </li>
                 </ul>
+                <div class="ml-auto">
+                <a href="php/formulaire_contact.php" class="btn btn-outline-light">Laisser nous un commentaire</a>
+                </div>
             </div>
         </nav>
-
-
-
-
 
         <div class="content">
             <?php if(isset($_POST['view_added'])): ?>
                 <div id="resume">
-                    <h3>Résumé des phrases ajoutées :</h3>
+                    <h4>Résumé des phrases ajoutées :</h4>
                     <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -179,18 +184,16 @@ if(isset($_POST['confirm_delete_phrases'])) {
                 <form method="post">
                     
                     <?php if (!empty(getAllAddedPhrases())): ?>
+
                     <button id="delete_phrases" type="submit" class="btn btn-danger" name="delete_phrases">Supprimer</button>
                     <?php else: ?>
-                        <p>Pas de phrases ajoutées</p>
+                        <p>Pas de phrases ajoutées.<br>
+                            Veuillez ajouter des phrases.</p><br>
                     <?php endif; ?>
+                    <a href="InputSentence.php" class="btn btn-primary">Ajouter une phrase</a>
+                    <a href="index.html" class="btn btn-primary">Accueil</a>
 
-
-                    <a href="InputSentence.php" class="btn btn-primary">Ajouter 1 autre phrase</a>
-                    <a href="index.html" class="btn btn-primary">Accueil 1</a>
-
-
-                    <!-- <button id="delete_phrases" type="submit" class="btn btn-danger" name="delete_phrases">Supprimer</button> -->
-                </form>
+               </form>
                 
 
             <?php elseif(isset($_POST['submit'])): ?>
@@ -212,7 +215,6 @@ if(isset($_POST['confirm_delete_phrases'])) {
                 <!-- formulaire-->
                 <form method="post">
                  <!-- id="inputSentence"` -->
-
                     <table class="table table-info table-bordered">
                         <thead>
                             <tr>
@@ -287,16 +289,20 @@ if(isset($_POST['confirm_delete_phrases'])) {
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
-                    </table>
+                            </table>
                     <button type="submit" class="btn btn-danger" name="confirm_delete_phrases">Confirmer la suppression</button>
+                    <a href="InputSentence.php" class="btn btn-primary">Ajouter une phrase</a>
+                    <a href="index.html" class="btn btn-primary">Page d'Accueil</a>
                 </form>
                 </div>
             <?php endif; ?>
 
         <!-- Footer -->
-        <!-- <footer class="footer">
-            <p>Shami THIRION SEN &copy; 2024 Projet Web Programmation</p>
-        </footer> -->
+        
     </div>
+</main>
+<footer class="footer">
+            <p>Shami THIRION SEN &copy; 2024 Projet Web Programmation</p>
+</footer>
 </body>
 </html>
